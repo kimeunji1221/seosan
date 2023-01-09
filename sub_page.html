@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seosan hospital</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/sub_page.css">
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <script>
+            $(document).ready(function () {
+                var state = true;//조건식에 사용할 상태값을 선언함
+                console.log(state);//true
+
+                $('#nav').mouseenter(function () {
+                    if (state == true) {
+                        state = false;
+                        $('#sub').css({ height: '0px', 'box-shadow': '0px 5px 5px 5px rgba(71, 71, 71, 0.2)' }).animate({ height: '600px', 'box-shadow': 'none' }, 500);
+                        console.log(state);//false
+                    }
+                });
+                $('#sub').mouseleave(function () {
+                    state = true;
+                    $('#sub').css({ height: '600px', 'box-shadow': 'none' }).animate({ height: '0px', 'box-shadow': '0px 5px 5px 5px rgba(71, 71, 71, 0.2)' }, 500);
+                });
+            });
+
+            $(document).ready(function () {
+                $('.trangle').click(function () {
+                    $('.link_in>ul>li').addClass('sm');
+                });
+
+                $('.trangle').mouseout(function () {
+                    $('.link_in>ul>li').removeClass('sm');
+                });
+            });
+        </script>
+        <div id="header">
+            <div id="header_in">
+                <div id="nav">
+                    <div class="nav_in">
+                        <div class="logo">
+                            <img src="./images/header_logo color.png">
+                        </div>
+                        <ul class="nav_top">
+                            <li><a href="">진료과&#183;센터</a></li>
+                            <li><a href="">진료안내</a></li>
+                            <li><a href="">병원 이용안내</a></li>
+                            <li><a href="">고객센터</a></li>
+                            <li><a href="">병원소개</a></li>
+                        </ul>
+                        <div class="search">
+                            <ul class="login">
+                                <li><a href="">로그인</a></li>
+                                <li><a href="">회원가입</a></li>
+                            </ul>
+                            <ul class="bar">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="link">
+                    <div class="link_in">
+                        <ul>
+                            <div class="link_in_icon">
+                                <a href="#"><img src="./images/sub_page/breadcrumb-icon-home header.svg" alt="" /></a>
+                            </div>
+                            <li>
+                                <div>
+                                    <p>병원소개</p>
+                                    <div class="trangle"></div>
+                                </div>
+                                <ul>
+                                    <li><a href="">진료과&#183;센터</a></li>
+                                    <li><a href="">진료안내</a></li>
+                                    <li><a href="">병원 이용안내</a></li>
+                                    <li><a href="">고객센터</a></li>
+                                    <li><a href="">병원소개</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div>
+                                    <p>서산중앙병원 소개</p>
+                                    <div class="trangle"></div>
+                                </div>
+                                <ul>
+                                    <li><a href="">서산중앙병원 소개</a></li>
+                                    <li><a href="">병원장 인사말</a></li>
+                                    <li><a href="">미션&#183;비전&#183;핵심 가치</a></li>
+                                    <li><a href="">병원 연혁</a></li>
+                                    <li><a href="">장비소개</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="sub">
+                <ul class="sub_area">
+                    <li>
+                        <ul>
+                            <li><a href="">진료과</a></li>
+                            <li><a href="">전문센터</a></li>
+                            <li><a href="">의료진</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">진료안내</a></h4>
+                            <li><a href="">외래진료</a></li>
+                            <li><a href="">응급진료</a></li>
+                            <li><a href="">진료절차</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">입&#47;퇴원안내</a></h4>
+                            <li><a href="">입퇴원 절차</a></li>
+                            <li><a href="">입원 생활 안내</a></li>
+                            <li><a href="">면회 안내</a></li>
+                            <li><a href="">이번주 식단</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">발급&#47;조회안내</a></h4>
+                            <li><a href="">증명서 발급</a></li>
+                            <li><a href="">비급여 진료비용</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">위치안내</a></h4>
+                            <li><a href="">오시는 길</a></li>
+                            <li><a href="">주차 안내</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">시설안내</a></h4>
+                            <li><a href="">편의시설</a></li>
+                            <li><a href="">층별안내</a></li>
+                            <li><a href="">예배안내</a></li>
+                            <li><a href="">장례식장</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">공지사항</a></h4>
+                            <li><a href="">병원소식</a></li>
+                            <li><a href="">채용정보</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">고객서비스</a></h4>
+                            <li><a href="">자주묻는 질문</a></li>
+                            <li><a href="">전화번호 안내</a></li>
+                            <li><a href="">고객의 소리</a></li>
+                            <li><a href="">건강상담</a></li>
+                            <li><a href="">고객감동사연</a></li>
+                            <li><a href="">건강정보</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><a href="">서산중앙병원 소개</a></li>
+                            <li><a href="">병원장 인사말</a></li>
+                            <li><a href="">미션&#183;비전&#183;핵심 가치</a></li>
+                            <li><a href="">병원 연혁</a></li>
+                            <li><a href="">장비소개</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="main">
+                <div class="main_in">
+                    <div class="main_box">
+                        <div>
+                            <a>서산중앙병원 소개</a>
+                            <h3>지역사회 중심병원<br>
+                                <b>서산 시민들의 건강을<br>
+                                    책임지겠습니다&#46;</b>
+                            </h3>
+                            <p>바른 진료로 지역주민의 질환을<br>
+                                정확하게 치료하는 최고의 병원이 되겠습니다&#46;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="count">
+                    <ul>
+                        <li>
+                            <p>설립일</p>
+                            <h5>1&#44;935<a>년</a></h5>
+                        </li>
+                        <li>
+                            <p>진료과&#183;전문센터</p>
+                            <h5>26<a>개</a></h5>
+                        </li>
+                        <li>
+                            <p>병상</p>
+                            <h5>300<a>여개</a></h5>
+                        </li>
+                        <li>
+                            <p>의료진</p>
+                            <h5>30<a>여명</a></h5>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- data-ani=countUp data-count-num=1935 transform=translate(0,0) opacity=1 -->
+
+
+        <!-- <script>
+$(function breadCrumb() {
+    var $btnTrigger = $(".btn-current-page");
+    var headerH;
+
+    $btnTrigger.on("click", function() {
+      $(".drop-menu").stop().slideUp(300); //초기화
+      $(this).prev(".drop-menu").stop().slideToggle(300); //활성화
+    });
+
+    $(".bread-crumb-st3").on("mouseleave", function() {
+      $(".drop-menu").stop().slideUp(); //초기화
+    });
+
+    $(window).on("resize", function() {
+
+      if (window.innerWidth >= mediaQuery.lg) {
+        headerH = $(".pc-header").innerHeight();
+      } else {
+        $(document).on("touchend", function() {
+
+          if ($(".drop-menu").is(":visible")) {
+            $(".drop-menu").stop().slideUp(); //초기화
+          }
+
+        });
+        headerH = $(".mobile-header").innerHeight();
+      }
+    }).resize();
+
+    $(window).on("scroll", function() {
+      var winW = $(document).innerWidth();
+      var scrollTop = $(this).scrollTop();
+      var breadcrumb3_pos = (winW > 1200) ? 0 : $(".bread-crumb-st3").offset().top;
+      // 처음스크롤부터 fixed
+      // var breadcrumb3_pos = 0;
+      console.log(winW);
+
+      if (scrollTop >= breadcrumb3_pos) {
+        $(".bread-crumb-inner").addClass("fixed");
+      } else {
+        $(".bread-crumb-inner").removeClass("fixed");
+      }
+    });
+  })();
+</script> -->
+
+
+        <!-- contents -->
+        <div id="contents">
+            <div id="history">
+                <div class="back"></div>
+                <div class="history_in">
+                    <div class="h_img">
+                        <img src="./images/sub_page/hospital-img-02.jpg" alt="" />
+                    </div>
+                    <div class="h_text">
+                        <h4>서산중앙병원의 시작</h4>
+                        <p>1935년 의료 부재지역인 충청남도 예산에서<br>
+                            기독교 정신을 바탕으로 중앙의원을 개원&#44;<br>
+                            처음으로 의료서비스를 개시한 이래 3대에<br>
+                            걸쳐 예산중앙병원을 설립하였습니다&#46;<br><br>
+
+                            서해안 지역을 중심으로 복리증진을 위해<br>
+                            투철한 사명감으로 지역주민의 건강관리와<br>
+                            질병 치료는 물론 지역사회의 발전에<br>
+                            동참하여 왔습니다&#46;
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="future">
+                <div class="future_in">
+                    <div class="f_text">
+                        <h4>서산중앙병원의 미래</h4>
+                        <p>현대적 시설과 최신의 장비를 갖춘 서산중앙병원(종합병원)으로 거듭나 서산시를 비롯한 인근<br>
+                            지역에 전문적이고 질 높은 의료서비스를 통하여 예수님의 사랑을 알리고자 합니다&#46;<br><br>
+
+                            무의촌 순회 진료 봉사와 생활 보호 대상자에 대한 의료봉사 사업을 적극 실시하며&#44; 지역 여건 및<br>
+                            의료전달 체계 확립을 통해 지역 의료시설의 효율성을 높이고 각급 의료기관과의 유기적 협조를<br>
+                            도모합니다&#46;
+                        </p>
+                    </div>
+                    <div class="f_img">
+                        <img src="./images/sub_page/hospital-img-03.jpg" alt="" />
+                    </div>
+                </div>
+                <div class="future_icon">
+                    <div class="future_icon_in">
+                        <ul>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-01.svg"
+                                        alt="" />
+                                </div>
+                                <h5>성시화 지정 병원</h5>
+                                <p>하나님 사랑으로 지역민을 섬기며 복음을<br>
+                                    전하기 위한 성시화 지정 병원
+                                </p>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-02.svg"
+                                        alt="" />
+                                </div>
+                                <h5>환자 감동 병원</h5>
+                                <p>환자중심병원에서 환자감동병원으로<br>
+                                    환자만족을 최우선
+                                </p>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-03.svg"
+                                        alt="" />
+                                </div>
+                                <h5>전직원 복음화</h5>
+                                <p>병원교회를 통한 전직원 및 내원 환우들의<br> 복음화
+                                </p>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-04.svg"
+                                        alt="" />
+                                </div>
+                                <h5>지역 목회자 유대</h5>
+                                <p>지속적인 의료봉사를 통해 지역<br> 목회자님과의 유대 및 감사
+                                </p>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-05.svg"
+                                        alt="" />
+                                </div>
+                                <h5>의료정보 전산화</h5>
+                                <p>효율적이고 체계적인 진료정보 관리를 위해<br>
+                                    의료정보 전산화를 구축하여 환자에게<br>
+                                    양질의 서비스 제공
+                                </p>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="http://www.isjh.co.kr/views/res/imgs/page/menu_intro/hospital-icon-06.svg"
+                                        alt="" />
+                                </div>
+                                <h5>의료서비스 제공</h5>
+                                <p>질환별 세분화 진료와 사회적으로 소외되어<br>
+                                    있는 생활보호 대상자들을 위한 의료<br>
+                                    서비스를 제공
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- contect -->
+        <div id="company">
+            <div id="company_in">
+                <h4>진료협약 체결</h4>
+                <div>
+                    <ul>
+                        <li><img src="./images/sub_page/hospital-logo-img-01.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-02.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-03.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-04.png" alt="" /></li>
+                    </ul>
+                    <ul>
+                        <li><img src="./images/sub_page/hospital-logo-img-05.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-06.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-07.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-08.png" alt="" /></li>
+                    </ul>
+                    <ul>
+                        <li><img src="./images/sub_page/hospital-logo-img-09.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-10.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-11.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-12.png" alt="" /></li>
+                    </ul>
+                    <ul>
+                        <li><img src="./images/sub_page/hospital-logo-img-13.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-14.png" alt="" /></li>
+                        <li><img src="./images/sub_page/hospital-logo-img-15.png" alt="" /></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <div id="footer_top">
+                <div class="footer_a">
+                    <img src="./images/footer-logo.svg" alt="">
+                    <ul>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+                        <li>쿠키정책</li>
+                        <li>환자의 권리와 의무</li>
+                        <li>비급여항목</li>
+                    </ul>
+                    <div class="footer_button">
+                        <div><a href="#">네이버 블로그&#8599;</a></div>
+                    </div>
+                </div>
+                <div class="footer_b">
+                    <ul>
+                        <li>주소 <b>충남 서산시 수석산업로 5</b></li>
+                        <li>대표전화 <b>041-661-1000</b></li>
+                        <li>팩스 <b>041-661-1209</b></li>
+                        <li>검진센터 <b>041-661-1051~2</b></li>
+                    </ul>
+                    <div class="footer_cop">
+                        <p>ⓒ 2021 서산중앙병원 All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

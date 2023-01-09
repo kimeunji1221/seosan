@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seosan hospital</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/jquery.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+        <script>
+            $(function () {
+                var visual = $('#visual > ul > li');
+                var btn = $('.btnList_bar > li')
+                var current = 0;
+                var setIntervalId;//전역변수
+                btn.eq(current).addClass('on');
+
+                //버튼 제어
+                btn.click(function (e) {
+                    e.preventDefault();
+                    var n = $(this).index();
+                    console.log(n)
+                    btn.removeClass('on');
+                    $(this).addClass('on');
+                    move(n);
+                });
+
+                $('#main_img').on({
+                    mouseover: function () {
+                        clearInterval(setIntervalId)
+                    },
+                    mouseout: function () { timer(); }
+                });
+
+                timer();
+                function timer() {
+                    setIntervalId = setInterval(function () {
+                        var n = current + 1;//0 1 2 3(0)
+                        if (n == 4) {
+                            n = 0;
+                        }
+                        btn.removeClass('on');
+                        btn.eq(n).addClass('on');
+                        move(n)
+                    }, 3000)
+                }
+
+                function move(n) {
+                    if (current == n) return;
+
+                    var currentEl = visual.eq(current);
+                    var nextEl = visual.eq(n);
+
+                    currentEl.css({ left: '0%' }).animate({ left: '-100%' });
+                    nextEl.css({ left: '100%' }).animate({ left: '0%' });
+
+                    current = n;
+                    //nextEl의 인덱스값은 애니메이션 되고나면 current값이 되어야함
+                }
+
+                $('.btnList_icon').on({
+                    mouseover: function () {
+                        clearInterval(setIntervalId)
+                    },
+                    mouseout: function () { timer(); }
+                });
+            });
+
+            $(document).ready(function () {
+                    var state = true;//조건식에 사용할 상태값을 선언함
+                    console.log(state);//true
+
+                    $('.nav').mouseenter(function () {
+                        if (state == true) {
+                            state = false;
+                            $('#sub').css({ height: '0px', 'box-shadow': '0px 5px 5px 5px rgba(71, 71, 71, 0.2)' }).animate({ height: '600px', 'box-shadow': 'none' }, 500);
+                            console.log(state);//false
+                        }
+                    });
+                    $('#sub').mouseleave(function () {
+                        state = true;
+                        $('#sub').css({ height: '600px', 'box-shadow': 'none' }).animate({ height: '0px', 'box-shadow': '0px 5px 5px 5px rgba(71, 71, 71, 0.2)' }, 500);
+                    });
+                });
+        </script>
+        <div id="header">
+            <div id="header_in">
+                <div class="nav">
+                    <div class="logo">
+                        <img src="./images/header_logo color.png">
+                    </div>
+                    <ul class="nav_in">
+                        <li><a href="">진료과&#183;센터</a></li>
+                        <li><a href="">진료안내</a></li>
+                        <li><a href="">병원 이용안내</a></li>
+                        <li><a href="">고객센터</a></li>
+                        <li><a href="./sub_page.html">병원소개</a></li>
+                    </ul>
+                    <div class="search">
+                        <ul class="login">
+                            <li><a href="">로그인</a></li>
+                            <li><a href="">회원가입</a></li>
+                        </ul>
+                        <ul class="bar">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div id="sub">
+                <ul class="sub_area">
+                    <li>
+                        <ul>
+                            <li><a href="">진료과</a></li>
+                            <li><a href="">전문센터</a></li>
+                            <li><a href="">의료진</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">진료안내</a></h4>
+                            <li><a href="">외래진료</a></li>
+                            <li><a href="">응급진료</a></li>
+                            <li><a href="">진료절차</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">입&#47;퇴원안내</a></h4>
+                            <li><a href="">입퇴원 절차</a></li>
+                            <li><a href="">입원 생활 안내</a></li>
+                            <li><a href="">면회 안내</a></li>
+                            <li><a href="">이번주 식단</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">발급&#47;조회안내</a></h4>
+                            <li><a href="">증명서 발급</a></li>
+                            <li><a href="">비급여 진료비용</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">위치안내</a></h4>
+                            <li><a href="">오시는 길</a></li>
+                            <li><a href="">주차 안내</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">시설안내</a></h4>
+                            <li><a href="">편의시설</a></li>
+                            <li><a href="">층별안내</a></li>
+                            <li><a href="">예배안내</a></li>
+                            <li><a href="">장례식장</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <h4><a href="">공지사항</a></h4>
+                            <li><a href="">병원소식</a></li>
+                            <li><a href="">채용정보</a></li>
+                        </ul>
+                        <ul>
+                            <h4><a href="">고객서비스</a></h4>
+                            <li><a href="">자주묻는 질문</a></li>
+                            <li><a href="">전화번호 안내</a></li>
+                            <li><a href="">고객의 소리</a></li>
+                            <li><a href="">건강상담</a></li>
+                            <li><a href="">고객감동사연</a></li>
+                            <li><a href="">건강정보</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul>
+                            <li><a href="">서산중앙병원 소개</a></li>
+                            <li><a href="">병원장 인사말</a></li>
+                            <li><a href="">미션&#183;비전&#183;핵심 가치</a></li>
+                            <li><a href="">병원 연혁</a></li>
+                            <li><a href="">장비소개</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="main_img">
+                <div id="visual">
+                    <ul>
+                        <li class="img01">
+                            <div>
+                                <h3><b>환자중심의 빠르고 체계적인</b><br>의료서비스 시스템을 구축</h3>
+                                <p>16개 진료과, 10개의 전문센터를 운영.<br>
+                                   충남 서북부 최대규모의 의료시설, 서산중앙병원입니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="img02">
+                            <div>
+                                <h3>지역민의 건강지킴이로<br><b>늘 시민들의 곁에 있겠습니다.</b></h3>
+                                <p>서산중앙병원은 지역민의 건강한 삶을 지키기 위해<br>
+                                   언제나 지역민과 함께합니다.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="img03">
+                            <div>
+                                <h3><b>코로나 19로 부터 안전한</b><br>국민안심병원, 서산중앙병원입니다.</h3>
+                                <p>전 이용객의 여행력, 발열, 이동경로, 증상을 확인하고<br>
+                                   진료 전 과정에서 다른 환자와 분리하여 진료합니다.
+                                </p>
+                            </div> 
+                        </li>
+                        <li class="img04">
+                            <div>
+                                <h3>국민건강보험공단<br>
+                                    3주기 병원급 검진기관 평가결과<br>
+                                    검진유형에서 <b>"최우수" 선정</b>
+                                </h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="btnList">
+                    <ul class="btnList_bar">
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                        <li><a href=""></a></li>
+                    </ul>
+                    <div class="btnList_icon">
+                        <div class="pause_btn">
+                            <div></div>
+                            <div></div>
+                        </div>
+                        <div class="play_btn"></div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+        <!-- contents -->
+        <div id="contents">
+            <script>
+                $(document).ready(function () {
+                    $('.menu_list ul li>div').mouseenter(function () {
+                        $(this).addClass('ln');
+                    });
+                    $('.menu_list ul li>div').mouseleave(function () {
+                        $(this).removeClass('ln');
+                    });
+                });
+            </script>
+            <!-- menu -->
+            <div id="menu">
+                <div id="menu_all">
+                    <div class="menu_in">
+                        <p>서비스 바로가기</p>
+                        <h2>원하시는 항목을<br><b>빠르게 찾아보세요&#46;</b></h2>
+                    </div>
+                    <div class="menu_list">
+                        <ul>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-01.svg" alt=""></div>
+                                <p>진료과</p>
+                            </li>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-02.svg" alt=""></div>
+                                <p>전화번호 안내</p>
+                            </li>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-03.svg" alt=""></div>
+                                <p>건강상담</p>
+                            </li>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-04.svg" alt=""></div>
+                                <p>증명서 발급</p>
+                            </li>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-05.svg" alt=""></div>
+                                <p>건강검진</p>
+                            </li>
+                            <li>
+                                <div><img src="./images/main/main-quick-icon-06.svg" alt=""></div>
+                                <p>장례식장</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- info -->
+            <div id="info">
+                <script>
+                    $(document).ready(function () {
+                        $('.box_button').mouseover(function () {
+                            $(this).addClass('btn');
+                        });
+                        $('.box_button').mouseleave(function () {
+                            $(this).removeClass('btn');
+                        });
+                    });
+                    $(document).ready(function () {
+                        $('.info_list>ul>li').mouseover(function () {
+                            $(this).addClass('iml');
+                        });
+                        $('.info_list>ul>li').mouseleave(function () {
+                            $(this).removeClass('iml');
+                        });
+                    });
+                    
+                    $(document).ready(function () {
+                        $('.info_button div').mouseover(function () {
+                            $(this).addClass('mn');
+                        });
+                        $('.info_button div').mouseleave(function () {
+                            $(this).removeClass('mn');
+                        });
+                    });
+                </script>
+                <!-- main -->
+                <div id="main">
+                    <div id="main_all">
+                        <div class="main_in">
+                            <div class="box">
+                                <div>
+                                    <p>서산중앙병원 의료진</p>
+                                    <h2><b>국내 최고의 전문의료진</b>이<br>함께합니다&#46;</h2>
+                                    <span>충남 서북부 최대 규모의 서산중앙병원은 30여명의<br>전문 의료진에 의한 최고의 의료서비스 제공합니다&#46;</span>
+                                    <div class="box_button">의료진 전체보기</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main_img"></div>
+                    </div>
+                </div>
+                <!-- info01 -->
+                <div id="info_top">
+                    <div id="info_up">
+                        <div class="info_in">
+                            <p>바른진료&#44; 최상의 의료 서비스</p>
+                            <h3>서산중앙병원 <b>진료과</b></h3>
+                        </div>
+                    </div>
+                    <div class="info_list">
+                        <ul>
+                            <li>
+                                <p><b>01</b>&#47;16</p>
+                                <h4>신장내과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info01-icon01.svg">
+                                    <img src="./images/info/info01-icon01-white.svg">
+                                </div>
+                                
+                            </li>
+                            <li>
+                                <p><b>02</b>&#47;16</p>
+                                <h4>내분비내과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info01-icon02.svg">
+                                    <img src="./images/info/info01-icon02-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>03</b>&#47;16</p>
+                                <h4>소화기내과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info01-icon03.svg">
+                                    <img src="./images/info/info01-icon03-white.svg">
+                                </div>
+                                </li>
+                            <li>
+                                <p><b>04</b>&#47;16</p>
+                                <h4>외과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info01-icon04.svg">
+                                    <img src="./images/info/info01-icon04-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>05</b>&#47;16</p>
+                                <h4>정형외과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info01-icon05.svg">
+                                    <img src="./images/info/info01-icon05-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>06</b>&#47;16</p>
+                                <h4>신경과</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img" src="./images/info/info01-icon06.svg">
+                                    <img" src="./images/info/info01-icon06-white.svg">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info_button">
+                        <div>진료과 전체보기</div>
+                    </div>
+                </div>
+
+                <!-- info02 -->
+                <div id="info_top">
+                    <div id="info_up">
+                        <div class="info_in">
+                            <p>환자중심&#44; 고객만족의 의료케어</p>
+                            <h3>서산중앙병원 <b>전문센터</b></h3>
+                        </div>
+                    </div>
+                    <div class="info_list">
+                        <ul>
+                            <li>
+                                <p><b>01</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon01.svg">
+                                    <img src="./images/info/info02-icon01-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>02</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon02.svg">
+                                    <img src="./images/info/info02-icon02-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>03</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon03.svg">
+                                    <img src="./images/info/info02-icon03-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>04</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon04.svg">
+                                    <img src="./images/info/info02-icon04-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>05</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon05.svg">
+                                    <img src="./images/info/info02-icon05-white.svg">
+                                </div>
+                            </li>
+                            <li>
+                                <p><b>06</b>&#47;16</p>
+                                <h4>소화기내시경센터</h4>
+                                <span>바로가기&#8594;</span>
+                                <div>
+                                    <img src="./images/info/info02-icon06.svg">
+                                    <img src="./images/info/info02-icon06-white.svg">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info_button">
+                        <div>전문센터 전체보기</div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $('.list_under ul li').mouseover(function () {
+                        $(this).addClass('ntt');
+                    });
+                    $('.list_under ul li').mouseleave(function () {
+                        $(this).removeClass('ntt');
+                    });
+                });
+                $(document).ready(function () {
+                    $('.notice_button div').mouseover(function () {
+                        $(this).addClass('ntn');
+                    });
+                    $('.notice_button div').mouseleave(function () {
+                        $(this).removeClass('ntn');
+                    });
+                });
+            </script>
+            <!-- notice -->
+            <div id="notice">
+                <div class="notice_in">
+                    <h3>병원소식</h3>
+                </div>
+                <div class="notice_list">
+                    <div class="list_under">
+                        <ul>
+                            <li>
+                                <h4>&#91;2022.11.07&#126;&#93;비뇨의학과 백용기 과장&#44; 신규<br>의료진을 소개합니다&#46;</h4>
+                                <p>비뇨의학과 백용기 과장 경력 전북대학교 의과대학<br>졸업 가톨릭대학교 성바오로병원 인턴&#46;&#46;&#46;</p>
+                                <span>2022&#46;11&#46;07</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                            <li>
+                                <h4>2022년 11월&#47;12월 토요진료 안내</h4>
+                                <p>&#9679;진료 11월 12월 5 12 19 26 3 10 17 24 31
+                                    신경과<br>&#9679;&#9679;&#9679;&#9679;신경외과&#9679;&#9679;&#9679;&#9679;재활의학과&#46;&#46;&#46;
+                                </p>
+                                <span>2022&#46;10&#46;29</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                            <li>
+                                <h4>만65세 이상 어른신 무료 독감 예방접종 실시</h4>
+                                <p></p>
+                                <span>2022&#46;10&#46;13</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h4>10월 진료 안내</h4>
+                                <p></p>
+                                <span>2022&#46;09&#46;23</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                            <li>
+                                <h4>2022년 9월&#47;10월 토요진료 안내</h4>
+                                <p>&#9679;진료 9월 10월 3 10 17 24 1 8 15 22 29
+                                    신경과&#9679;<br>&#9679;&#9679;신경외과&#9679;&#9679;&#9679;&#9679;피부비뇨의학과&#9679;&#9679;&#46;&#46;&#46;
+                                </p>
+                                <span>2022&#46;08&#46;29</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                            <li>
+                                <h4>2022년 추석연휴 진료안내</h4>
+                                <p></p>
+                                <span>2022&#46;08&#46;25</span>
+                                <a href="#">자세히 보기&#8594;</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="notice_button">
+                    <div>병원소식 전체보기</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- map -->
+        <div id="map">
+            <div id="map_img"></div>
+            <div id="map_in">
+                <h2>찾아오시는 길</h2>
+                <ul class="map_c">
+                    <li>병원위치 <b>충남 서산시 수석산업로 5</b></li>
+                    <li>대표전화 <b>041.661.1000</b></li>
+                    <li>주차안내 <b><a href="#">자세히보기&#8594;</b></li>
+                </ul>
+                <ul class="map_i">
+                    <li>
+                        <img src="./images/icon-sns-naver.svg" alt="" />
+                        <p>네이버 지도</p>
+                    </li>
+                    <li>
+                        <img src="./images/icon-sns-kaako.svg" alt="" />
+                        <p>카카오 지도</p>
+                    </li>
+                    <li>
+                        <img src="./images/icon-sns-google.svg" alt="" />
+                        <p>구글 지도</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div id="footer">
+            <div id="footer_top">
+                <div class="footer_a">
+                    <img src="./images/footer-logo.svg" alt="">
+                    <ul>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+                        <li>쿠키정책</li>
+                        <li>환자의 권리와 의무</li>
+                        <li>비급여항목</li>
+                    </ul>
+                    <div class="footer_button">
+                        <div><a href="#">네이버 블로그&#8599;</a></div>
+                    </div>
+                </div>
+                <div class="footer_b">
+                    <ul>
+                        <li>주소 <b>충남 서산시 수석산업로 5</b></li>
+                        <li>대표전화 <b>041-661-1000</b></li>
+                        <li>팩스 <b>041-661-1209</b></li>
+                        <li>검진센터 <b>041-661-1051~2</b></li>
+                    </ul>
+                    <div class="footer_cop">
+                        <p>ⓒ 2021 서산중앙병원 All Rights Reserved</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
